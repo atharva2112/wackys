@@ -1,0 +1,13 @@
+{
+  "headline": "So glad you stopped in!",
+  "perks": [
+    { "id": "signup-app", "title": "Free appetizer", "detail": "For signing up*", "icon": "wings" },
+    { "id": "birthday", "title": "Birthday dip", "detail": "A 4-Cheese Spinach Dip on your birthday", "icon": "parties" },
+    { "id": "free-wings", "title": "Win free wings", "detail": "A chance to win FREE WINGS for 1 year", "icon": "prizes" }
+  ],
+  "terms": "*Note: by clicking register you are signing up for our mailing list.",
+  "hype": "Get ready for a Wacky ride my friend…",
+  "officialUrl": "https://wackys.com/vip/",
+  "source": "wackys.com/vip (via Design System), Oct 2026",
+  "verified": "yes"
+}

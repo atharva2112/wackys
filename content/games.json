@@ -1,0 +1,60 @@
+{
+  "intro": "Arcade games, competitive play, virtual reality and sports on multiple screens — families and friends, go head to head.",
+  "source": "Wacky's Design System (from wackys.com Game On header and Half Price Games feature)",
+  "items": [
+    {
+      "id": "arcade",
+      "name": "Arcade Games",
+      "blurb": "Rows of cabinets, ticket games and prizes. Load up a Play Card and go.",
+      "icon": "arcade",
+      "locations": [
+        "thunder-bay"
+      ]
+    },
+    {
+      "id": "vr",
+      "name": "Virtual Reality",
+      "blurb": "Strap in and step into another world between rounds of wings.",
+      "icon": "vr",
+      "locations": [
+        "thunder-bay"
+      ]
+    },
+    {
+      "id": "air-hockey",
+      "name": "Air Hockey",
+      "blurb": "Fast, loud and the best way to settle who pays.",
+      "icon": "airhockey",
+      "locations": [
+        "thunder-bay"
+      ]
+    },
+    {
+      "id": "billiards",
+      "name": "Billiards",
+      "blurb": "Rack 'em up while the game's on the big screen.",
+      "icon": "billiards",
+      "locations": [
+        "thunder-bay"
+      ]
+    },
+    {
+      "id": "tabletop",
+      "name": "Tabletop Games",
+      "blurb": "Grab the crew and claim a table.",
+      "icon": "playcard",
+      "locations": [
+        "thunder-bay"
+      ]
+    },
+    {
+      "id": "sports",
+      "name": "Sports on Big Screens",
+      "blurb": "Big screens on every wall, so you never miss a play.",
+      "icon": "sports",
+      "locations": "all"
+    }
+  ],
+  "playCard": "Games run on Wacky's Play Cards. A $1 Play Card activation fee applies on combos.",
+  "scoreQuote": "Whoever said that winning or losing doesn't matter clearly hasn't set foot in Wacky's."
+}

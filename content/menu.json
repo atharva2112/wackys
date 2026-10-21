@@ -1,0 +1,289 @@
+{
+  "note": "Prices vary by location — order online or ask your server for current pricing. Line-ups can vary by location.",
+  "officialMenuUrl": "https://wackys.com/eat/main-menu/",
+  "dineInMenuUrl": "https://wackys.com/dinein/",
+  "allergenNote": "Gluten-friendly options and an allergen guide are available — ask your server, or call your location before you visit.",
+  "categories": [
+    {
+      "id": "wings",
+      "name": "Wings",
+      "kicker": "The main event",
+      "blurb": "Hand-tossed in your pick of over 100 Wacky flavours, wet sauce or dry shaker.",
+      "items": [
+        {
+          "id": "bone-in-wings",
+          "name": "Bone-In Wings",
+          "description": "Classic wings tossed in your choice of Wacky flavours.",
+          "sizes": [
+            "12 pc",
+            "18 pc",
+            "24 pc",
+            "50 pc"
+          ],
+          "price": null,
+          "tags": [
+            "signature"
+          ],
+          "dietary": [],
+          "locations": "all",
+          "available": true,
+          "source": "Delivery-partner listings (Thunder Bay), Oct 2026",
+          "verified": "needs-confirmation"
+        },
+        {
+          "id": "boneless-wings",
+          "name": "Boneless Wings",
+          "description": "All the sauce, none of the bones.",
+          "sizes": [],
+          "price": null,
+          "tags": [],
+          "dietary": [],
+          "locations": "all",
+          "available": true,
+          "source": "Design System flavour card; delivery-partner listings",
+          "verified": "needs-confirmation"
+        },
+        {
+          "id": "plant-based-wings",
+          "name": "Plant-Based Wings",
+          "description": "A 20-piece plant-based option, tossed like the rest.",
+          "sizes": [
+            "20 pc"
+          ],
+          "price": null,
+          "tags": [],
+          "dietary": [
+            "plant-based"
+          ],
+          "locations": "all",
+          "available": true,
+          "source": "Delivery-partner listing (Thunder Bay), Oct 2026",
+          "verified": "needs-confirmation"
+        },
+        {
+          "id": "wing-sampler",
+          "name": "Wing Sampler",
+          "description": "20 wings with 4 Wacky Flavours, plus Tater Tots & Garlic Dill for dipping.",
+          "sizes": [],
+          "price": null,
+          "tags": [
+            "share"
+          ],
+          "dietary": [],
+          "locations": "all",
+          "available": true,
+          "source": "Delivery-partner listings (SSM Great Northern, Thunder Bay)",
+          "verified": "needs-confirmation"
+        },
+        {
+          "id": "7-wing-meal",
+          "name": "7 Wing Meal",
+          "description": "Seven wings and a side — part of the Eat 'N Game On! combos.",
+          "sizes": [],
+          "price": null,
+          "tags": [],
+          "dietary": [],
+          "locations": "all",
+          "available": true,
+          "source": "Wacky's Design System (from wackys.com)",
+          "verified": "name"
+        }
+      ]
+    },
+    {
+      "id": "burgers",
+      "name": "Burgers & Handhelds",
+      "kicker": "Smashed to order",
+      "blurb": "Handmade burgers with crispy, lacy edges.",
+      "items": [
+        {
+          "id": "byo-smashburger",
+          "name": "Build Your Own Smashburger",
+          "description": "Stack it how you like it.",
+          "sizes": [],
+          "price": null,
+          "tags": [
+            "signature"
+          ],
+          "dietary": [],
+          "locations": "all",
+          "available": true,
+          "source": "Wacky's Design System (from wackys.com)",
+          "verified": "name"
+        },
+        {
+          "id": "big-wack",
+          "name": "The Big Wack Burger",
+          "description": null,
+          "sizes": [],
+          "price": null,
+          "tags": [],
+          "dietary": [],
+          "locations": "all",
+          "available": true,
+          "source": "Guest reviews (Restaurantji, Thunder Bay)",
+          "verified": "needs-confirmation"
+        }
+      ]
+    },
+    {
+      "id": "poutine",
+      "name": "Poutine",
+      "kicker": "Northern comfort",
+      "blurb": "Fresh-cut fries, squeaky curds and gravy — then we get wacky with it.",
+      "items": [
+        {
+          "id": "old-fashioned-poutine",
+          "name": "Old-Fashioned Poutine",
+          "description": "The classic: fries, cheese curds, gravy.",
+          "sizes": [
+            "Small",
+            "Large"
+          ],
+          "price": null,
+          "tags": [],
+          "dietary": [],
+          "locations": "all",
+          "available": true,
+          "source": "Menu aggregator (Thunder Bay)",
+          "verified": "needs-confirmation"
+        },
+        {
+          "id": "bacon-cheddar-poutine",
+          "name": "Bacon Cheddar Poutine",
+          "description": null,
+          "sizes": [
+            "Small",
+            "Large"
+          ],
+          "price": null,
+          "tags": [],
+          "dietary": [],
+          "locations": "all",
+          "available": true,
+          "source": "Wacky's Design System (Large Bacon Cheddar Poutine, from wackys.com)",
+          "verified": "name"
+        },
+        {
+          "id": "boneless-wing-poutine",
+          "name": "Boneless Wing Poutine",
+          "description": "Poutine loaded with boneless wings in your flavour.",
+          "sizes": [
+            "Small",
+            "Large"
+          ],
+          "price": null,
+          "tags": [
+            "guest favourite"
+          ],
+          "dietary": [],
+          "locations": "all",
+          "available": true,
+          "source": "Uber Eats listing (Thunder Bay) — most-liked item",
+          "verified": "needs-confirmation"
+        },
+        {
+          "id": "butter-chicken-poutine",
+          "name": "Butter Chicken Poutine",
+          "description": null,
+          "sizes": [
+            "Small",
+            "Large"
+          ],
+          "price": null,
+          "tags": [],
+          "dietary": [],
+          "locations": "all",
+          "available": true,
+          "source": "Menu aggregator (Thunder Bay)",
+          "verified": "needs-confirmation"
+        }
+      ]
+    },
+    {
+      "id": "tenders-apps",
+      "name": "Tenders & Apps",
+      "kicker": "Start here",
+      "blurb": "Shareables for the table while you pick a flavour.",
+      "items": [
+        {
+          "id": "jumbo-tenders",
+          "name": "3 Jumbo Chicken Tenders",
+          "description": null,
+          "sizes": [],
+          "price": null,
+          "tags": [],
+          "dietary": [],
+          "locations": "all",
+          "available": true,
+          "source": "Wacky's Design System (from wackys.com)",
+          "verified": "name"
+        },
+        {
+          "id": "spinach-dip",
+          "name": "4-Cheese Spinach Dip",
+          "description": "VIPs get one on their birthday.",
+          "sizes": [],
+          "price": null,
+          "tags": [
+            "VIP birthday"
+          ],
+          "dietary": [
+            "vegetarian"
+          ],
+          "locations": "all",
+          "available": true,
+          "source": "Wacky's VIP Club offer (wackys.com/vip)",
+          "verified": "name"
+        },
+        {
+          "id": "tater-tots",
+          "name": "Tater Tots",
+          "description": null,
+          "sizes": [],
+          "price": null,
+          "tags": [],
+          "dietary": [],
+          "locations": "all",
+          "available": true,
+          "source": "Wing Sampler description (delivery-partner listings)",
+          "verified": "needs-confirmation"
+        },
+        {
+          "id": "fry-flavours",
+          "name": "Flavoured Fries",
+          "description": "Over 20 fry flavours — ask your server for today's list.",
+          "sizes": [],
+          "price": null,
+          "tags": [],
+          "dietary": [],
+          "locations": "all",
+          "available": true,
+          "source": "Wacky's Design System (from wackys.com)",
+          "verified": "yes"
+        }
+      ]
+    },
+    {
+      "id": "kids",
+      "name": "Kids",
+      "kicker": "Little legends",
+      "blurb": "Kids 10 and under eat free on Sundays with an adult entrée at participating locations.",
+      "items": [
+        {
+          "id": "kids-meal",
+          "name": "Kids Meal",
+          "description": "Entrée, side, drink and dessert.",
+          "sizes": [],
+          "price": null,
+          "tags": [],
+          "dietary": [],
+          "locations": "all",
+          "available": true,
+          "source": "Kids Eat 'N Play Combo (wackys.com/party-packages)",
+          "verified": "needs-confirmation"
+        }
+      ]
+    }
+  ]
+}
