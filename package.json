@@ -2,14 +2,15 @@
   "name": "wackys-web",
   "version": "1.0.0",
   "private": true,
-  "description": "Wacky's — Eat. Drink. Game On! Restaurant, bar and arcade website.",
+  "description": "Wacky's \u2014 Eat. Drink. Game On! Restaurant, bar and arcade website.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "validate:content": "tsx scripts/validate-content.ts"
+    "validate:content": "tsx scripts/validate-content.ts",
+    "build:pages": "STATIC_EXPORT=1 next build"
   },
   "engines": {
     "node": ">=20"

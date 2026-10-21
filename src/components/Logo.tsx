@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { asset } from "@/lib/paths";
 
 /**
  * Brand mark. The master wordmark (wackys_logo.png) must be supplied by Wacky's — the
@@ -9,7 +10,7 @@ export function Logo({ src, size = "md" }: { src: string | null; size?: "md" | "
   if (src) {
     return (
       <Image
-        src={src} alt="Wacky's" width={size === "lg" ? 240 : 150} height={size === "lg" ? 100 : 56}
+        src={asset(src)} alt="Wacky's" width={size === "lg" ? 240 : 150} height={size === "lg" ? 100 : 56}
         className={size === "lg" ? "h-24 w-auto" : "h-12 w-auto"} priority={size === "md"}
       />
     );

@@ -1,0 +1,58 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Read Pages settings
+        id: pages
+        if: github.event_name != 'pull_request'
+        uses: actions/configure-pages@v5
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run validate:content
+      - name: Static export
+        run: npm run build:pages
+        env:
+          # "/wackys" for a project site; empty on a custom domain or user site.
+          NEXT_PUBLIC_BASE_PATH: ${{ github.event_name == 'pull_request' && format('/{0}', github.event.repository.name) || steps.pages.outputs.base_path }}
+          NEXT_PUBLIC_SITE_URL: ${{ github.event_name == 'pull_request' && format('https://{0}.github.io/{1}', github.repository_owner, github.event.repository.name) || format('{0}{1}', steps.pages.outputs.origin, steps.pages.outputs.base_path) }}
+          # Optional public form endpoints (e.g. Formspree). Set as repository variables; unset = phone/email fallback.
+          NEXT_PUBLIC_PARTY_FORM_URL: ${{ vars.PARTY_FORM_URL }}
+          NEXT_PUBLIC_CONTACT_FORM_URL: ${{ vars.CONTACT_FORM_URL }}
+          NEXT_PUBLIC_VIP_FORM_URL: ${{ vars.VIP_FORM_URL }}
+      - uses: actions/upload-pages-artifact@v3
+        if: github.event_name != 'pull_request'
+        with:
+          path: out
+
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

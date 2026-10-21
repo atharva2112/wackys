@@ -1,10 +1,12 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { appliesTo, getLocation, openLocations, parties } from "@/lib/content";
 import { PartyInput } from "@/lib/forms";
 import { telHref } from "@/lib/hours";
+import { FORM_ENDPOINTS } from "@/lib/paths";
 import { Field, Honeypot, useFormSubmit } from "./form";
 import { useLocationChoice } from "./LocationProvider";
 import { useArcade } from "./ArcadeProvider";
@@ -16,7 +18,7 @@ export function PartyForm({ initialOccasion }: { initialOccasion?: string }) {
     name: "", email: "", phone: "", location: "", occasion: initialOccasion ?? "", packageId: "",
     date: "", time: "", guests: "", notes: "", consent: false, website: "",
   });
-  const { errors, status, message, submit, formRef } = useFormSubmit(PartyInput, "/api/party-enquiry");
+  const { errors, status, message, submit, formRef } = useFormSubmit(PartyInput, FORM_ENDPOINTS.party);
   const { addPoints, blip } = useArcade();
 
   useEffect(() => { if (slug && !v.location) setV((s) => ({ ...s, location: slug })); }, [slug, v.location]);
@@ -111,7 +113,7 @@ export function PartyForm({ initialOccasion }: { initialOccasion?: string }) {
       <div>
         <label className="flex items-start gap-3 text-[15px]">
           <input type="checkbox" name="consent" checked={v.consent} onChange={set("consent")} aria-invalid={errors.consent ? true : undefined} aria-describedby={errors.consent ? "consent-error" : undefined} className="mt-1 size-5 accent-maple" />
-          <span>Wacky&apos;s may contact me by email or phone about this enquiry. We only use your details for this booking — see our <a href="/privacy" className="underline underline-offset-4">privacy policy</a>.</span>
+          <span>Wacky&apos;s may contact me by email or phone about this enquiry. We only use your details for this booking — see our <Link href="/privacy" className="underline underline-offset-4">privacy policy</Link>.</span>
         </label>
         {errors.consent && <p id="consent-error" className="mt-1.5 text-[15px] font-semibold text-maple-deep">▲ {errors.consent}</p>}
       </div>

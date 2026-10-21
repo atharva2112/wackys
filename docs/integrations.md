@@ -16,6 +16,8 @@ Everything below has a **clearly identified configuration point** and a **workin
 | Maps | none (stylised SVG + Google Maps directions links) | Works now. Swap for a tile map later if wanted |
 | Analytics / consent | not included | Add with a consent banner if required |
 
+**Static hosting (GitHub Pages):** the webhook variables above need the Node server. On Pages, set the repository variables `PARTY_FORM_URL`, `CONTACT_FORM_URL`, `VIP_FORM_URL` (public endpoints such as Formspree, which accept browser `POST` JSON) — unset means the fallback described above. The honeypot travels with the payload; spam filtering and rate limiting are then the form service's job.
+
 Webhook payload: `{ "kind": "party-enquiry" | "contact" | "vip-signup", "submittedAt": ISO, "data": {…validated fields} }`.
 Rate limiting in `src/lib/submit.ts` is per-instance; put an edge/WAF limit in front in production.
 

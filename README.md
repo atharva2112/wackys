@@ -15,6 +15,18 @@ npm run validate:content # schema-check all content + list items awaiting busine
 
 Copy `.env.example` to `.env.local` to switch on form delivery (see [docs/integrations.md](docs/integrations.md)).
 
+## Hosting on GitHub Pages (temporary)
+
+`.github/workflows/pages.yml` builds a static export and deploys it on every push to `main` (pull requests get a build check only).
+
+1. Repo **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+2. Merge to `main` (or run the workflow manually from the Actions tab). The site appears at `https://<owner>.github.io/<repo>/` — the base path is detected automatically.
+3. Optional: add repository **variables** `PARTY_FORM_URL`, `CONTACT_FORM_URL`, `VIP_FORM_URL` pointing at a static form service (e.g. Formspree) to make the forms send.
+
+Locally: `NEXT_PUBLIC_BASE_PATH=/wackys npm run build:pages` → `./out`.
+
+What changes on Pages: there's no server, so the `/api/*` routes (files named `route.api.ts`) are left out of the build. Without the form variables above, the party, contact and VIP forms still validate, then offer the location's phone, a prefilled email or the official VIP page. Security headers from `next.config.ts` don't apply — GitHub Pages sets its own. Everything else (animations, location memory, explorer, roulette, finder, CMS-driven content) works the same.
+
 ## Stack
 
 | Layer | Choice |

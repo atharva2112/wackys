@@ -6,7 +6,7 @@ import { flattenErrors, type FieldErrors } from "@/lib/forms";
 
 export type Status = "idle" | "sending" | "success" | "unconfigured" | "error";
 
-export function useFormSubmit<T extends z.ZodTypeAny>(schema: T, endpoint: string) {
+export function useFormSubmit<T extends z.ZodTypeAny>(schema: T, endpoint: string | null) {
   const [errors, setErrors] = useState<FieldErrors>({});
   const [status, setStatus] = useState<Status>("idle");
   const [message, setMessage] = useState<string | null>(null);
@@ -32,15 +32,22 @@ export function useFormSubmit<T extends z.ZodTypeAny>(schema: T, endpoint: strin
       return false;
     }
     setErrors({});
+    if (!endpoint) {
+      // Static hosting with no form service configured: be upfront instead of faking a send.
+      setStatus("unconfigured");
+      setMessage("Online submissions aren't switched on yet.");
+      return false;
+    }
     setStatus("sending");
     try {
       const res = await fetch(endpoint, {
         method: "POST",
-        headers: { "content-type": "application/json" },
+        headers: { "content-type": "application/json", accept: "application/json" },
         body: JSON.stringify({ ...values, startedAt: startedAt.current, website: values.website ?? "" }),
       });
       const json = await res.json().catch(() => ({}));
-      if (res.ok && json.ok) { setStatus("success"); return true; }
+      // Our API answers { ok: true }; hosted form services (e.g. Formspree) answer 2xx with their own body.
+      if (res.ok && (json.ok ?? true)) { setStatus("success"); return true; }
       if (json.errors) { setErrors(json.errors); setStatus("idle"); focusFirstError(json.errors); return false; }
       if (json.unconfigured) { setStatus("unconfigured"); setMessage(json.error); return false; }
       setStatus("error");
