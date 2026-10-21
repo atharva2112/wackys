@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { openLocations, vip } from "@/lib/content";
 import { VipInput } from "@/lib/forms";
+import { FORM_ENDPOINTS } from "@/lib/paths";
 import { Field, Honeypot, useFormSubmit } from "./form";
 import { useLocationChoice } from "./LocationProvider";
 import { useArcade } from "./ArcadeProvider";
@@ -14,7 +15,7 @@ const CONFETTI = ["#D52B1E", "#FFC23D", "#F5821F", "#3EF0A6", "#F5EEE2"];
 export function VipForm({ dark = false }: { dark?: boolean }) {
   const { slug } = useLocationChoice();
   const [values, setValues] = useState({ email: "", firstName: "", location: "", website: "" });
-  const { errors, status, message, submit, formRef } = useFormSubmit(VipInput, "/api/vip");
+  const { errors, status, message, submit, formRef } = useFormSubmit(VipInput, FORM_ENDPOINTS.vip);
   const { addPoints, blip } = useArcade();
 
   useEffect(() => { if (slug && !values.location) setValues((v) => ({ ...v, location: slug })); }, [slug, values.location]);

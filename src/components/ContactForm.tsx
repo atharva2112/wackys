@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { getLocation, openLocations } from "@/lib/content";
 import { ContactInput } from "@/lib/forms";
 import { telHref } from "@/lib/hours";
+import { FORM_ENDPOINTS } from "@/lib/paths";
 import { Field, Honeypot, useFormSubmit } from "./form";
 import { useLocationChoice } from "./LocationProvider";
 
@@ -18,7 +19,7 @@ const TOPICS = [
 export function ContactForm() {
   const { slug } = useLocationChoice();
   const [v, setV] = useState({ name: "", email: "", phone: "", location: "", topic: "", message: "", website: "" });
-  const { errors, status, message, submit, formRef } = useFormSubmit(ContactInput, "/api/contact");
+  const { errors, status, message, submit, formRef } = useFormSubmit(ContactInput, FORM_ENDPOINTS.contact);
   useEffect(() => { if (slug && !v.location) setV((s) => ({ ...s, location: slug })); }, [slug, v.location]);
   const loc = getLocation(v.location);
   const set = (k: keyof typeof v) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setV((s) => ({ ...s, [k]: e.target.value }));

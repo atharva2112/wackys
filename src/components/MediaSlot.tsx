@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { asset } from "@/lib/paths";
 
 /**
  * Art-directed media frame. Shows the supplied Wacky's photo when one is configured
@@ -14,7 +15,7 @@ export function MediaSlot({
   if (src) {
     return (
       <div className={`relative overflow-hidden ${className}`}>
-        <Image src={src} alt={alt} fill sizes={sizes} priority={priority} className="object-cover" />
+        <Image src={asset(src)} alt={alt} fill sizes={sizes} priority={priority} className="object-cover" />
         {children}
       </div>
     );

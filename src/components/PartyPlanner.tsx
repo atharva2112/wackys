@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { appliesTo, parties } from "@/lib/content";
 import { PackageCard } from "./PackageCard";
 import { PartyForm } from "./PartyForm";
@@ -9,9 +9,15 @@ import { Icon } from "./Icon";
 
 const OCC_ICON: Record<string, string> = { kids: "parties", sports: "sports", friends: "beer", "team-building": "prizes", graduation: "vip" };
 
-export function PartyPlanner({ initialOccasion }: { initialOccasion?: string }) {
+export function PartyPlanner() {
   const { slug, location, openPicker } = useLocationChoice();
-  const [occasion, setOccasion] = useState<string | undefined>(initialOccasion);
+  const [occasion, setOccasion] = useState<string | undefined>();
+
+  // ?occasion=kids preselects an occasion. Read on the client so the page stays static.
+  useEffect(() => {
+    const o = new URLSearchParams(window.location.search).get("occasion");
+    if (o && parties.occasions.some((x) => x.id === o)) setOccasion(o);
+  }, []);
   const pkgs = parties.packages.filter((p) => p.active && appliesTo(p.locations, slug) && (!occasion || p.occasions.includes(occasion)));
 
   return (
