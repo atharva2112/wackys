@@ -17,11 +17,12 @@ Copy `.env.example` to `.env.local` to switch on form delivery (see [docs/integr
 
 ## Hosting on GitHub Pages (temporary)
 
-`.github/workflows/pages.yml` builds a static export and deploys it on every push to `main` (pull requests get a build check only).
+`.github/workflows/pages.yml` builds a static export on every push to `main` and publishes it to the **`gh-pages`** branch (pull requests get a build check only).
 
-1. Repo **Settings → Pages → Build and deployment → Source: GitHub Actions**.
-2. Merge to `main` (or run the workflow manually from the Actions tab). The site appears at `https://<owner>.github.io/<repo>/` — the base path is detected automatically.
-3. Optional: add repository **variables** `PARTY_FORM_URL`, `CONTACT_FORM_URL`, `VIP_FORM_URL` pointing at a static form service (e.g. Formspree) to make the forms send.
+1. Merge to `main` (or run **Actions → Deploy to GitHub Pages → Run workflow**). The first run creates the `gh-pages` branch.
+2. Repo **Settings → Pages → Build and deployment → Source: Deploy from a branch → Branch: `gh-pages` / `(root)`** → Save. (Not `main` — `main` holds the source code, so Pages would just show the README.)
+3. The site appears at `https://<owner>.github.io/<repo>/` within a minute or two.
+4. Optional: repository **variables** `PARTY_FORM_URL`, `CONTACT_FORM_URL`, `VIP_FORM_URL` (e.g. Formspree endpoints) make the forms send; `BASE_PATH` = `/` + `SITE_URL` for a custom domain.
 
 Locally: `NEXT_PUBLIC_BASE_PATH=/wackys npm run build:pages` → `./out`.
 

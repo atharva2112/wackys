@@ -8,7 +8,8 @@ import type { NextConfig } from "next";
  *    forms post to the public endpoints in NEXT_PUBLIC_*_FORM_URL, if any.
  */
 const isStatic = process.env.STATIC_EXPORT === "1";
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+// "/" means served from the domain root (custom domain).
+const basePath = (process.env.NEXT_PUBLIC_BASE_PATH || "").replace(/\/+$/, "");
 
 const securityHeaders = [
   { key: "X-Content-Type-Options", value: "nosniff" },
