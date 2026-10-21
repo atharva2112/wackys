@@ -1,0 +1,40 @@
+{
+  "name": "Wacky's",
+  "tagline": "Eat. Drink. Game On!",
+  "description": "Arcade, bar and restaurant. Hand-tossed wings in over 100 flavours, a full bar and an arcade under one cedar-log roof across Northern Ontario.",
+  "founded": "December 2007",
+  "foundedCity": "Sault Ste. Marie, Ontario",
+  "stats": [
+    { "value": "2007", "label": "Opened December 2007 in Sault Ste. Marie", "verified": true },
+    { "value": "100+", "label": "Wing flavours, wet sauces to dry seasonings", "verified": true },
+    { "value": "20+", "label": "Fry flavours alongside burgers, poutine and tenders", "verified": true },
+    { "value": "5", "label": "Northern Ontario locations open now", "verified": true }
+  ],
+  "links": {
+    "orderOnline": "https://wackys.com/onlineordering",
+    "reservation": "https://wackys.com/make-a-reservation/",
+    "vip": "https://wackys.com/vip/",
+    "officialMenu": "https://wackys.com/eat/main-menu/",
+    "dineInMenu": "https://wackys.com/dinein/",
+    "ayce": "https://wackys.com/AYCE/",
+    "features": "https://wackys.com/features/",
+    "partyPackages": "https://wackys.com/party-packages/",
+    "about": "https://wackys.com/about",
+    "careers": null
+  },
+  "social": [
+    { "network": "instagram", "handle": "@wackys_canada", "label": "Wacky's Canada", "url": "https://www.instagram.com/wackys_canada/", "location": null },
+    { "network": "instagram", "handle": "@wackys_tbay", "label": "Wacky's Thunder Bay", "url": "https://www.instagram.com/wackys_tbay/", "location": "thunder-bay" },
+    { "network": "facebook", "handle": "wackyscanada", "label": "Wacky's Canada", "url": "https://www.facebook.com/wackyscanada/", "location": null },
+    { "network": "facebook", "handle": "WackyWingsNorthBay", "label": "Wacky's North Bay", "url": "https://www.facebook.com/WackyWingsNorthBay/", "location": "north-bay" }
+  ],
+  "socialPosts": [],
+  "homepage": {
+    "heroKicker": "Arcade · Bar · Restaurant · Northern Ontario",
+    "heroBody": "Hand-tossed wings in over 100 flavours, a full bar and an arcade under one cedar-log roof. Bring the family, the team or the whole crew.",
+    "heroImage": null,
+    "eatImage": null,
+    "drinkImage": null,
+    "gameImage": null
+  }
+}

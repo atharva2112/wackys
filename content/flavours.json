@@ -1,0 +1,281 @@
+{
+  "totalClaim": "100+",
+  "note": "Wacky's pours over 100 flavours — this board is a taste. Heat ratings are a guide; lineups vary by location, so ask your server for today's full list.",
+  "sources": {
+    "menu-2026": "wackys.com/wackyeats/?mid=566 — 'Dry Shakers' section and sauce list (via search index, Oct 2026)",
+    "ssm-legacy": "Older Sault Ste. Marie menu (via search index; may be outdated — confirm before launch)"
+  },
+  "items": [
+    {
+      "id": "cheddar",
+      "name": "Cheddar",
+      "type": "dry",
+      "profiles": [
+        "cheesy",
+        "savoury"
+      ],
+      "heat": 1,
+      "description": null,
+      "source": "menu-2026",
+      "verified": "name",
+      "isNew": false,
+      "available": true
+    },
+    {
+      "id": "cool-ranch",
+      "name": "Cool Ranch",
+      "type": "dry",
+      "profiles": [
+        "tangy",
+        "savoury"
+      ],
+      "heat": 1,
+      "description": null,
+      "source": "menu-2026",
+      "verified": "name",
+      "isNew": false,
+      "available": true
+    },
+    {
+      "id": "maple-bacon",
+      "name": "Maple Bacon",
+      "type": "dry",
+      "profiles": [
+        "sweet",
+        "smoky"
+      ],
+      "heat": 1,
+      "description": null,
+      "source": "menu-2026",
+      "verified": "name",
+      "isNew": false,
+      "available": true
+    },
+    {
+      "id": "maple-bacon-cheddar",
+      "name": "Maple Bacon Cheddar",
+      "type": "dry",
+      "profiles": [
+        "sweet",
+        "smoky",
+        "cheesy"
+      ],
+      "heat": 1,
+      "description": null,
+      "source": "menu-2026",
+      "verified": "name",
+      "isNew": false,
+      "available": true
+    },
+    {
+      "id": "garlic-parmesan",
+      "name": "Garlic Parmesan",
+      "type": "dry",
+      "profiles": [
+        "garlicky",
+        "cheesy"
+      ],
+      "heat": 1,
+      "description": null,
+      "source": "menu-2026",
+      "verified": "name",
+      "isNew": false,
+      "available": true
+    },
+    {
+      "id": "dill-pickle",
+      "name": "Dill Pickle",
+      "type": "dry",
+      "profiles": [
+        "tangy"
+      ],
+      "heat": 1,
+      "description": null,
+      "source": "menu-2026",
+      "verified": "name",
+      "isNew": false,
+      "available": true
+    },
+    {
+      "id": "parmesan-herb",
+      "name": "Parmesan & Herb",
+      "type": "dry",
+      "profiles": [
+        "cheesy",
+        "savoury"
+      ],
+      "heat": 1,
+      "description": null,
+      "source": "menu-2026",
+      "verified": "name",
+      "isNew": false,
+      "available": true
+    },
+    {
+      "id": "roasted-red-pepper-garlic",
+      "name": "Roasted Red Pepper N' Garlic",
+      "type": "dry",
+      "profiles": [
+        "garlicky",
+        "smoky"
+      ],
+      "heat": 2,
+      "description": null,
+      "source": "menu-2026",
+      "verified": "name",
+      "isNew": false,
+      "available": true
+    },
+    {
+      "id": "mild-to-wild",
+      "name": "Mild to Wild",
+      "type": "sauce",
+      "profiles": [
+        "spicy",
+        "adventurous"
+      ],
+      "heat": 4,
+      "description": null,
+      "source": "menu-2026",
+      "verified": "name",
+      "isNew": false,
+      "available": true
+    },
+    {
+      "id": "sriracha-buffalo",
+      "name": "Sriracha Buffalo",
+      "type": "sauce",
+      "profiles": [
+        "spicy",
+        "tangy"
+      ],
+      "heat": 3,
+      "description": null,
+      "source": "menu-2026",
+      "verified": "name",
+      "isNew": false,
+      "available": true
+    },
+    {
+      "id": "sauce-boss",
+      "name": "Sauce Boss",
+      "type": "sauce",
+      "profiles": [
+        "spicy",
+        "adventurous"
+      ],
+      "heat": 5,
+      "description": null,
+      "source": "menu-2026",
+      "verified": "name",
+      "isNew": false,
+      "available": true
+    },
+    {
+      "id": "smokey-bbq",
+      "name": "Smokey BBQ",
+      "type": "dry",
+      "profiles": [
+        "smoky",
+        "sweet"
+      ],
+      "heat": 1,
+      "description": null,
+      "source": "ssm-legacy",
+      "verified": "needs-confirmation",
+      "isNew": false,
+      "available": true
+    },
+    {
+      "id": "buffalo-dry",
+      "name": "Buffalo",
+      "type": "dry",
+      "profiles": [
+        "spicy",
+        "tangy"
+      ],
+      "heat": 2,
+      "description": null,
+      "source": "ssm-legacy",
+      "verified": "needs-confirmation",
+      "isNew": false,
+      "available": true
+    },
+    {
+      "id": "jalapeno-dill",
+      "name": "Jalapeño Dill",
+      "type": "sauce",
+      "profiles": [
+        "tangy",
+        "spicy"
+      ],
+      "heat": 2,
+      "description": null,
+      "source": "ssm-legacy",
+      "verified": "needs-confirmation",
+      "isNew": false,
+      "available": true
+    },
+    {
+      "id": "chili-lime",
+      "name": "Chili Lime",
+      "type": "sauce",
+      "profiles": [
+        "tangy",
+        "spicy"
+      ],
+      "heat": 2,
+      "description": null,
+      "source": "ssm-legacy",
+      "verified": "needs-confirmation",
+      "isNew": false,
+      "available": true
+    },
+    {
+      "id": "medium-louisiana",
+      "name": "Medium Louisiana",
+      "type": "sauce",
+      "profiles": [
+        "spicy",
+        "tangy"
+      ],
+      "heat": 2,
+      "description": null,
+      "source": "ssm-legacy",
+      "verified": "needs-confirmation",
+      "isNew": false,
+      "available": true
+    },
+    {
+      "id": "spicy-garlic",
+      "name": "Spicy Garlic",
+      "type": "sauce",
+      "profiles": [
+        "garlicky",
+        "spicy"
+      ],
+      "heat": 3,
+      "description": null,
+      "source": "ssm-legacy",
+      "verified": "needs-confirmation",
+      "isNew": false,
+      "available": true
+    },
+    {
+      "id": "habanero-thai",
+      "name": "Habanero Thai",
+      "type": "sauce",
+      "profiles": [
+        "spicy",
+        "sweet",
+        "adventurous"
+      ],
+      "heat": 4,
+      "description": null,
+      "source": "ssm-legacy",
+      "verified": "needs-confirmation",
+      "isNew": false,
+      "available": true
+    }
+  ]
+}

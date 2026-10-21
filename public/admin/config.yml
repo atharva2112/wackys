@@ -1,0 +1,333 @@
+# Wacky's content manager (Decap CMS). Staff sign in at /admin.
+# CONFIGURATION POINT: the GitHub backend needs an OAuth app (or switch to git-gateway on Netlify).
+# See docs/integrations.md → "Content manager".
+backend:
+  name: github
+  repo: atharva2112/wackys
+  branch: main
+  # base_url: https://your-oauth-proxy.example.com   # required for GitHub OAuth outside Netlify
+
+publish_mode: editorial_workflow   # edits go through Draft → In review → Ready, then publish
+media_folder: public/images/uploads
+public_folder: /images/uploads
+site_url: https://wackys.com
+locale: en
+
+x-verified: &verified
+  { label: "Verification", name: verified, widget: select, options: ["yes", "partial", "name", "needs-confirmation"], default: "needs-confirmation", hint: "Has the business confirmed this?" }
+x-scope: &scope
+  label: "Where it applies"
+  name: locations
+  widget: string
+  hint: 'Type all, participating, or comma-free JSON like ["thunder-bay"]'
+
+collections:
+  - name: promotions
+    label: "Specials & Promotions"
+    files:
+      - name: promotions
+        label: "All promotions"
+        file: content/promotions.json
+        fields:
+          - label: Promotions
+            name: promotions
+            widget: list
+            summary: "{{fields.day}} — {{fields.title}} (active: {{fields.active}})"
+            fields:
+              - { label: ID, name: id, widget: string, hint: "lowercase-with-dashes, never change once live" }
+              - { label: Active, name: active, widget: boolean, default: true, hint: "Switch off to hide the offer everywhere" }
+              - { label: Featured on homepage, name: featured, widget: boolean, default: false }
+              - { label: Zone (look), name: zone, widget: select, options: ["eat", "drink", "game"] }
+              - { label: Day, name: day, widget: string }
+              - { label: Time, name: time, widget: string, required: false }
+              - { label: Title, name: title, widget: string }
+              - { label: Body, name: body, widget: text }
+              - { label: Price, name: price, widget: string, required: false }
+              - label: Takeout add-on
+                name: takeout
+                widget: object
+                required: false
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: Detail, name: detail, widget: string }
+                  - { label: Price, name: price, widget: string }
+              - { label: Fine print, name: finePrint, widget: text }
+              - { label: Quote, name: quote, widget: string, required: false }
+              - *scope
+              - { label: Start date, name: startDate, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD", required: false }
+              - { label: End date, name: endDate, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD", required: false, hint: "Offer hides automatically after this date" }
+              - label: Button
+                name: cta
+                widget: object
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: Link, name: href, widget: string, hint: "/page, a full URL, 'reservation' or 'order'" }
+              - { label: Source, name: source, widget: string }
+              - *verified
+
+  - name: locations
+    label: "Locations & Hours"
+    files:
+      - name: locations
+        label: "All locations"
+        file: content/locations.json
+        fields:
+          - label: Locations
+            name: locations
+            widget: list
+            summary: "{{fields.name}} ({{fields.status}})"
+            fields:
+              - { label: Slug, name: slug, widget: string }
+              - { label: Name, name: name, widget: string }
+              - { label: City, name: city, widget: string }
+              - { label: Status, name: status, widget: select, options: ["open", "temporarily-closed", "coming-soon", "closed"] }
+              - { label: Status note, name: statusNote, widget: string, required: false }
+              - label: Address
+                name: address
+                widget: object
+                fields:
+                  - { label: Street, name: street, widget: string }
+                  - { label: City, name: city, widget: string }
+                  - { label: Province, name: province, widget: string, default: "ON" }
+                  - { label: Postal code, name: postal, widget: string, required: false }
+              - { label: Phone, name: phone, widget: string, required: false }
+              - { label: Email, name: email, widget: string, required: false }
+              - label: Map position
+                name: geo
+                widget: object
+                fields:
+                  - { label: Latitude, name: lat, widget: number, value_type: float }
+                  - { label: Longitude, name: lng, widget: number, value_type: float }
+                  - { label: Approximate, name: approximate, widget: boolean, default: true }
+              - label: Opening hours
+                name: hours
+                widget: list
+                required: false
+                hint: "Leave empty to show 'call to confirm'. Days: 0=Sun … 6=Sat. Close earlier than open = past midnight."
+                fields:
+                  - { label: Days, name: days, widget: select, multiple: true, options: [{label: Sun, value: 0}, {label: Mon, value: 1}, {label: Tue, value: 2}, {label: Wed, value: 3}, {label: Thu, value: 4}, {label: Fri, value: 5}, {label: Sat, value: 6}] }
+                  - { label: Opens (HH:MM), name: open, widget: string, pattern: ['^\d\d:\d\d$', "Use 24-hour HH:MM"] }
+                  - { label: Closes (HH:MM), name: close, widget: string, pattern: ['^\d\d:\d\d$', "Use 24-hour HH:MM"] }
+              - { label: Hours note, name: hoursNote, widget: string, required: false }
+              - { label: Online ordering URL, name: orderUrl, widget: string, required: false }
+              - { label: Reservation URL, name: reservationUrl, widget: string, required: false }
+              - { label: Official page, name: officialPage, widget: string, required: false }
+              - { label: Photo, name: image, widget: image, required: false }
+              - { label: Blurb, name: blurb, widget: text }
+              - label: Amenities
+                name: amenities
+                widget: object
+                fields:
+                  - { label: Dine-in, name: dineIn, widget: select, options: ["confirmed", "unconfirmed"] }
+                  - { label: Takeout, name: takeout, widget: select, options: ["confirmed", "unconfirmed"] }
+                  - { label: Full bar, name: bar, widget: select, options: ["confirmed", "unconfirmed"] }
+                  - { label: Sports screens, name: sports, widget: select, options: ["confirmed", "unconfirmed"] }
+                  - { label: Arcade, name: arcade, widget: select, options: ["confirmed", "unconfirmed"] }
+                  - { label: VR, name: vr, widget: select, options: ["confirmed", "unconfirmed"] }
+                  - { label: Billiards, name: billiards, widget: select, options: ["confirmed", "unconfirmed"] }
+                  - { label: Air hockey, name: airHockey, widget: select, options: ["confirmed", "unconfirmed"] }
+              - { label: Source, name: source, widget: string }
+              - *verified
+
+  - name: menu
+    label: "Menu"
+    files:
+      - name: menu
+        label: "Food menu"
+        file: content/menu.json
+        fields:
+          - { label: Note, name: note, widget: text }
+          - { label: Official menu URL, name: officialMenuUrl, widget: string }
+          - { label: Dine-in menu URL, name: dineInMenuUrl, widget: string }
+          - { label: Allergen note, name: allergenNote, widget: text }
+          - label: Categories
+            name: categories
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - { label: ID, name: id, widget: string }
+              - { label: Name, name: name, widget: string }
+              - { label: Kicker, name: kicker, widget: string }
+              - { label: Blurb, name: blurb, widget: text }
+              - label: Items
+                name: items
+                widget: list
+                summary: "{{fields.name}} {{fields.price}}"
+                fields:
+                  - { label: ID, name: id, widget: string }
+                  - { label: Name, name: name, widget: string }
+                  - { label: Description, name: description, widget: text, required: false }
+                  - { label: Sizes, name: sizes, widget: list, required: false }
+                  - { label: Price, name: price, widget: string, required: false, hint: "Leave blank when it varies by location" }
+                  - { label: Tags, name: tags, widget: list, required: false }
+                  - { label: Dietary, name: dietary, widget: list, required: false }
+                  - { label: Locations, name: locations, widget: string, default: "all" }
+                  - { label: Available, name: available, widget: boolean, default: true }
+                  - { label: Source, name: source, widget: string }
+                  - *verified
+      - name: drinks
+        label: "Drinks"
+        file: content/drinks.json
+        fields:
+          - { label: Intro, name: intro, widget: text }
+          - { label: Note, name: note, widget: text }
+          - { label: Source, name: source, widget: string }
+          - label: Categories
+            name: categories
+            widget: list
+            fields:
+              - { label: ID, name: id, widget: string }
+              - { label: Name, name: name, widget: string }
+              - { label: Kicker, name: kicker, widget: string }
+              - { label: Blurb, name: blurb, widget: text }
+              - label: Items
+                name: items
+                widget: list
+                required: false
+                fields:
+                  - { label: Name, name: name, widget: string }
+                  - { label: Description, name: description, widget: string, required: false }
+                  - { label: Price, name: price, widget: string, required: false }
+      - name: flavours
+        label: "Wing flavours"
+        file: content/flavours.json
+        fields:
+          - { label: Total claim, name: totalClaim, widget: string }
+          - { label: Guest note, name: note, widget: text }
+          - { label: Sources, name: sources, widget: object, fields: [{ label: Menu 2026, name: menu-2026, widget: string }, { label: SSM legacy, name: ssm-legacy, widget: string }] }
+          - label: Flavours
+            name: items
+            widget: list
+            summary: "{{fields.name}} ({{fields.type}}, heat {{fields.heat}})"
+            fields:
+              - { label: ID, name: id, widget: string }
+              - { label: Name, name: name, widget: string }
+              - { label: Type, name: type, widget: select, options: ["sauce", "dry"] }
+              - { label: Profiles, name: profiles, widget: select, multiple: true, options: ["sweet", "smoky", "spicy", "tangy", "savoury", "cheesy", "garlicky", "adventurous"] }
+              - { label: Heat (1–5), name: heat, widget: number, value_type: int, min: 1, max: 5 }
+              - { label: Description, name: description, widget: text, required: false }
+              - { label: Source key, name: source, widget: string }
+              - *verified
+              - { label: New flavour, name: isNew, widget: boolean, default: false }
+              - { label: Available, name: available, widget: boolean, default: true }
+
+  - name: parties
+    label: "Parties"
+    files:
+      - name: parties
+        label: "Party packages"
+        file: content/parties.json
+        fields:
+          - { label: Intro, name: intro, widget: text }
+          - label: Occasions
+            name: occasions
+            widget: list
+            fields: [{ label: ID, name: id, widget: string }, { label: Name, name: name, widget: string }, { label: Blurb, name: blurb, widget: string }]
+          - label: Packages
+            name: packages
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - { label: ID, name: id, widget: string }
+              - { label: Name, name: name, widget: string }
+              - { label: Occasion IDs, name: occasions, widget: list }
+              - label: Tiers
+                name: tiers
+                widget: list
+                fields:
+                  - { label: Name, name: name, widget: string }
+                  - { label: Includes, name: includes, widget: text }
+                  - { label: Price, name: price, widget: string }
+                  - *verified
+              - { label: Fine print, name: finePrint, widget: text }
+              - { label: Locations, name: locations, widget: string, default: "participating" }
+              - { label: Active, name: active, widget: boolean, default: true }
+              - { label: Source, name: source, widget: string }
+          - { label: Group note, name: groupNote, widget: text }
+          - { label: Source, name: source, widget: string }
+
+  - name: site
+    label: "Site, VIP & Careers"
+    files:
+      - name: site
+        label: "Site settings & homepage"
+        file: content/site.json
+        fields:
+          - { label: Name, name: name, widget: string }
+          - { label: Tagline, name: tagline, widget: string }
+          - { label: Description, name: description, widget: text }
+          - { label: Founded, name: founded, widget: string }
+          - { label: Founded city, name: foundedCity, widget: string }
+          - { label: Stats, name: stats, widget: list, fields: [{ label: Value, name: value, widget: string }, { label: Label, name: label, widget: string }, { label: Verified, name: verified, widget: boolean }] }
+          - label: Links
+            name: links
+            widget: object
+            fields:
+              - { label: Order online, name: orderOnline, widget: string }
+              - { label: Reservation, name: reservation, widget: string }
+              - { label: VIP, name: vip, widget: string }
+              - { label: Official menu, name: officialMenu, widget: string }
+              - { label: Dine-in menu, name: dineInMenu, widget: string }
+              - { label: AYCE menu, name: ayce, widget: string }
+              - { label: Features, name: features, widget: string }
+              - { label: Party packages, name: partyPackages, widget: string }
+              - { label: About, name: about, widget: string }
+              - { label: Careers, name: careers, widget: string, required: false }
+          - label: Social accounts
+            name: social
+            widget: list
+            fields:
+              - { label: Network, name: network, widget: select, options: ["instagram", "facebook", "tiktok"] }
+              - { label: Handle, name: handle, widget: string }
+              - { label: Label, name: label, widget: string }
+              - { label: URL, name: url, widget: string }
+              - { label: Location slug, name: location, widget: string, required: false }
+          - label: Approved social posts
+            name: socialPosts
+            widget: list
+            required: false
+            hint: "Only posts Wacky's owns or has permission to feature"
+            fields:
+              - { label: Post URL, name: url, widget: string }
+              - { label: Network, name: network, widget: select, options: ["instagram", "facebook"] }
+              - { label: Caption, name: caption, widget: string, required: false }
+          - label: Homepage
+            name: homepage
+            widget: object
+            fields:
+              - { label: Hero kicker, name: heroKicker, widget: string }
+              - { label: Hero body, name: heroBody, widget: text }
+              - { label: Hero photo, name: heroImage, widget: image, required: false }
+              - { label: Eat photo, name: eatImage, widget: image, required: false }
+              - { label: Drink photo, name: drinkImage, widget: image, required: false }
+              - { label: Game On photo, name: gameImage, widget: image, required: false }
+      - name: vip
+        label: "VIP Club"
+        file: content/vip.json
+        fields:
+          - { label: Headline, name: headline, widget: string }
+          - { label: Perks, name: perks, widget: list, fields: [{ label: ID, name: id, widget: string }, { label: Title, name: title, widget: string }, { label: Detail, name: detail, widget: string }, { label: Icon, name: icon, widget: select, options: ["wings", "parties", "prizes", "vip", "beer"] }] }
+          - { label: Terms, name: terms, widget: text }
+          - { label: Hype line, name: hype, widget: string }
+          - { label: Official URL, name: officialUrl, widget: string }
+          - { label: Source, name: source, widget: string }
+          - *verified
+      - name: careers
+        label: "Careers"
+        file: content/careers.json
+        fields:
+          - { label: Intro, name: intro, widget: text }
+          - { label: Openings, name: openings, widget: list, required: false, fields: [{ label: Title, name: title, widget: string }, { label: Location, name: location, widget: string }, { label: Type, name: type, widget: string }, { label: Apply URL, name: url, widget: string, required: false }] }
+          - { label: How to apply, name: howToApply, widget: text }
+          - { label: Apply URL, name: applyUrl, widget: string, required: false }
+          - { label: Source, name: source, widget: string }
+          - *verified
+      - name: games
+        label: "Games"
+        file: content/games.json
+        fields:
+          - { label: Intro, name: intro, widget: text }
+          - { label: Source, name: source, widget: string }
+          - { label: Games, name: items, widget: list, fields: [{ label: ID, name: id, widget: string }, { label: Name, name: name, widget: string }, { label: Blurb, name: blurb, widget: text }, { label: Icon, name: icon, widget: select, options: ["arcade", "vr", "airhockey", "billiards", "playcard", "sports", "prizes"] }, { label: Locations, name: locations, widget: string }] }
+          - { label: Play Card note, name: playCard, widget: text }
+          - { label: Score quote, name: scoreQuote, widget: string }

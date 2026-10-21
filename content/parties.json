@@ -1,0 +1,27 @@
+{
+  "intro": "Sports teams, birthdays, the office or the grad class — we'll set the table, fire up the games and keep the wings coming.",
+  "occasions": [
+    { "id": "kids", "name": "Kids Parties", "blurb": "Birthday legends eat, play and take home a toy." },
+    { "id": "sports", "name": "Sports Parties", "blurb": "Team wind-ups, tournament nights and game-day crowds." },
+    { "id": "friends", "name": "Friends", "blurb": "Big table, bigger pile of wings, no reason required." },
+    { "id": "team-building", "name": "Team Building", "blurb": "Swap the boardroom for air hockey and a scoreboard." },
+    { "id": "graduation", "name": "Graduation", "blurb": "Celebrate the grad class the Northern way." }
+  ],
+  "packages": [
+    {
+      "id": "kids-eat-n-play",
+      "name": "Kids Eat 'N Play Combo",
+      "occasions": ["kids"],
+      "tiers": [
+        { "name": "Get in the Game", "includes": "Kids meal — entrée, side, drink, dessert and toy", "price": "$29.99", "verified": "yes" },
+        { "name": "Gettin' Spoiled", "includes": "Get in the Game, plus extras — ask your location for inclusions", "price": "$39.99", "verified": "needs-confirmation" }
+      ],
+      "finePrint": "Plus applicable taxes. $1 Play Card activation fee included. Cannot be combined with other offers. Participating locations only.",
+      "locations": "participating",
+      "active": true,
+      "source": "wackys.com/party-packages (via Design System), Oct 2026"
+    }
+  ],
+  "groupNote": "Planning a team, office or grad party? Send an enquiry and your location will build the package with you — food, drinks, games and space.",
+  "source": "Wacky's Design System homepage + package card (from wackys.com), Oct 2026"
+}

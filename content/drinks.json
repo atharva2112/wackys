@@ -1,0 +1,11 @@
+{
+  "intro": "Classic and specialty cocktails, from martinis to MEGAS — plus plenty of beer, craft included, with big screens on every wall.",
+  "note": "Drink lists change by location and season. Item-level drink menus are added by each location in the CMS.",
+  "source": "Wacky's Design System homepage copy (from wackys.com Drink header)",
+  "categories": [
+    { "id": "megas", "name": "MEGAS", "kicker": "Go big", "blurb": "The supersized house pour. Built to share. Or not.", "items": [] },
+    { "id": "classic-cocktails", "name": "Classic Cocktails", "kicker": "Bar staples", "blurb": "Martinis and the classics, poured right.", "items": [] },
+    { "id": "specialty-cocktails", "name": "Specialty Cocktails", "kicker": "House creations", "blurb": "Wacky's own signature mixes.", "items": [] },
+    { "id": "beer", "name": "Beer", "kicker": "On tap & in the fridge", "blurb": "Plenty of beer, craft included — the perfect partner to a pile of wings.", "items": [] }
+  ]
+}

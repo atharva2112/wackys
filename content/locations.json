@@ -1,0 +1,258 @@
+{
+  "locations": [
+    {
+      "slug": "ssm-lake-street",
+      "name": "SSM Lake Street",
+      "city": "Sault Ste. Marie",
+      "status": "open",
+      "statusNote": null,
+      "address": {
+        "street": "350 Lake Street",
+        "city": "Sault Ste. Marie",
+        "province": "ON",
+        "postal": "P6B 3L1"
+      },
+      "phone": "705-253-2000",
+      "email": null,
+      "geo": {
+        "lat": 46.5236,
+        "lng": -84.3171,
+        "approximate": true
+      },
+      "hours": null,
+      "hoursNote": "Hours vary by season — call the restaurant to confirm today's hours.",
+      "orderUrl": "https://wackys.com/onlineordering",
+      "reservationUrl": "https://wackys.com/make-a-reservation/",
+      "officialPage": "https://wackys.com/ssm-lake-street/",
+      "image": null,
+      "blurb": "The original Wacky's — where the cabin, the wings and the games all started.",
+      "amenities": {
+        "dineIn": "confirmed",
+        "takeout": "confirmed",
+        "bar": "confirmed",
+        "sports": "confirmed",
+        "arcade": "unconfirmed",
+        "vr": "unconfirmed",
+        "billiards": "unconfirmed",
+        "airHockey": "unconfirmed"
+      },
+      "source": "Wacky's Design System artifact (from wackys.com), Oct 2026; northernontario.travel (original location)",
+      "verified": "partial"
+    },
+    {
+      "slug": "ssm-great-northern",
+      "name": "SSM Great Northern",
+      "city": "Sault Ste. Marie",
+      "status": "open",
+      "statusNote": null,
+      "address": {
+        "street": "688 Great Northern Rd.",
+        "city": "Sault Ste. Marie",
+        "province": "ON",
+        "postal": "P6B 5A2"
+      },
+      "phone": "705-575-2000",
+      "email": null,
+      "geo": {
+        "lat": 46.5528,
+        "lng": -84.3063,
+        "approximate": true
+      },
+      "hours": null,
+      "hoursNote": "Call the restaurant to confirm today's hours.",
+      "orderUrl": "https://wackys.com/onlineordering",
+      "reservationUrl": "https://wackys.com/make-a-reservation/",
+      "officialPage": null,
+      "image": null,
+      "blurb": "Sault Ste. Marie's north end Wacky's on Great Northern Road.",
+      "amenities": {
+        "dineIn": "confirmed",
+        "takeout": "confirmed",
+        "bar": "confirmed",
+        "sports": "confirmed",
+        "arcade": "unconfirmed",
+        "vr": "unconfirmed",
+        "billiards": "unconfirmed",
+        "airHockey": "unconfirmed"
+      },
+      "source": "Wacky's Design System artifact (from wackys.com), Oct 2026",
+      "verified": "partial"
+    },
+    {
+      "slug": "north-bay",
+      "name": "North Bay",
+      "city": "North Bay",
+      "status": "open",
+      "statusNote": null,
+      "address": {
+        "street": "1428 Seymour Street",
+        "city": "North Bay",
+        "province": "ON",
+        "postal": "P1A 0C9"
+      },
+      "phone": "705-478-9464",
+      "email": null,
+      "geo": {
+        "lat": 46.3392,
+        "lng": -79.4562,
+        "approximate": true
+      },
+      "hours": null,
+      "hoursNote": "Third-party listings disagree on hours — call to confirm.",
+      "orderUrl": "https://wackys.com/onlineordering",
+      "reservationUrl": "https://wackys.com/make-a-reservation/",
+      "officialPage": null,
+      "image": null,
+      "blurb": "Wings, the bar and an arcade area on Seymour Street.",
+      "amenities": {
+        "dineIn": "confirmed",
+        "takeout": "confirmed",
+        "bar": "confirmed",
+        "sports": "confirmed",
+        "arcade": "unconfirmed",
+        "vr": "unconfirmed",
+        "billiards": "unconfirmed",
+        "airHockey": "unconfirmed"
+      },
+      "source": "Wacky's Design System artifact (from wackys.com), Oct 2026; Tripadvisor/Yelp listings (phone cross-check)",
+      "verified": "partial"
+    },
+    {
+      "slug": "thunder-bay",
+      "name": "Thunder Bay",
+      "city": "Thunder Bay",
+      "status": "open",
+      "statusNote": null,
+      "address": {
+        "street": "540 High St. S.",
+        "city": "Thunder Bay",
+        "province": "ON",
+        "postal": "P7B 3M5"
+      },
+      "phone": "807-767-2000",
+      "email": null,
+      "geo": {
+        "lat": 48.4079,
+        "lng": -89.2502,
+        "approximate": true
+      },
+      "hours": [
+        {
+          "days": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "open": "11:00",
+          "close": "01:00"
+        },
+        {
+          "days": [
+            5,
+            6
+          ],
+          "open": "11:00",
+          "close": "02:00"
+        }
+      ],
+      "hoursNote": "Takeout hours as published. Kitchen and game-room hours may differ.",
+      "orderUrl": "https://wackys.com/onlineordering",
+      "reservationUrl": "https://wackys.com/make-a-reservation/",
+      "officialPage": null,
+      "image": null,
+      "blurb": "The full Game On experience — arcade, tabletop, air hockey, VR and billiards, plus Half Price Games every Tuesday.",
+      "amenities": {
+        "dineIn": "confirmed",
+        "takeout": "confirmed",
+        "bar": "confirmed",
+        "sports": "confirmed",
+        "arcade": "confirmed",
+        "vr": "confirmed",
+        "billiards": "confirmed",
+        "airHockey": "confirmed"
+      },
+      "source": "Wacky's Design System artifact (from wackys.com location card + features page), Oct 2026",
+      "verified": "yes"
+    },
+    {
+      "slug": "timmins",
+      "name": "Timmins",
+      "city": "Timmins",
+      "status": "open",
+      "statusNote": null,
+      "address": {
+        "street": "425 Algonquin Blvd.",
+        "city": "Timmins",
+        "province": "ON",
+        "postal": "P4N 1B5"
+      },
+      "phone": "705-531-2000",
+      "email": null,
+      "geo": {
+        "lat": 48.4758,
+        "lng": -81.3305,
+        "approximate": true
+      },
+      "hours": null,
+      "hoursNote": "Call the restaurant to confirm today's hours.",
+      "orderUrl": "https://wackys.com/onlineordering",
+      "reservationUrl": "https://wackys.com/make-a-reservation/",
+      "officialPage": null,
+      "image": null,
+      "blurb": "Timmins' Wacky's on Algonquin Boulevard.",
+      "amenities": {
+        "dineIn": "confirmed",
+        "takeout": "confirmed",
+        "bar": "confirmed",
+        "sports": "confirmed",
+        "arcade": "unconfirmed",
+        "vr": "unconfirmed",
+        "billiards": "unconfirmed",
+        "airHockey": "unconfirmed"
+      },
+      "source": "Wacky's Design System artifact (from wackys.com), Oct 2026",
+      "verified": "partial"
+    },
+    {
+      "slug": "sudbury",
+      "name": "Sudbury",
+      "city": "Sudbury",
+      "status": "temporarily-closed",
+      "statusNote": "We'll be back, so stay tuned.",
+      "address": {
+        "street": "187 Shaughnessy Street",
+        "city": "Sudbury",
+        "province": "ON",
+        "postal": null
+      },
+      "phone": null,
+      "email": null,
+      "geo": {
+        "lat": 46.4917,
+        "lng": -80.993,
+        "approximate": true
+      },
+      "hours": null,
+      "hoursNote": null,
+      "orderUrl": null,
+      "reservationUrl": null,
+      "officialPage": null,
+      "image": null,
+      "blurb": "Sudbury is taking a breather. Join the VIP Club to hear first when we're back.",
+      "amenities": {
+        "dineIn": "unconfirmed",
+        "takeout": "unconfirmed",
+        "bar": "unconfirmed",
+        "sports": "unconfirmed",
+        "arcade": "unconfirmed",
+        "vr": "unconfirmed",
+        "billiards": "unconfirmed",
+        "airHockey": "unconfirmed"
+      },
+      "source": "Wacky's Design System artifact (wackys.com shows 'We'll be back, so stay tuned'); street address from Tripadvisor listing",
+      "verified": "partial"
+    }
+  ]
+}

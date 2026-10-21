@@ -1,0 +1,102 @@
+{
+  "promotions": [
+    {
+      "id": "ayce-wednesday",
+      "active": true,
+      "featured": true,
+      "zone": "eat",
+      "day": "Wednesdays",
+      "time": "From 3:00 PM",
+      "title": "All-You-Can-Eat Wings",
+      "body": "Bone-in wings and your choice of side, all night long.",
+      "price": null,
+      "takeout": {
+        "label": "Takeout AYCE pack",
+        "detail": "24 wings, 2 flavours and a side",
+        "price": "$27.99"
+      },
+      "finePrint": "Dine-in requires a beverage purchase. Prices vary by location — contact your location. Takeout pack available Wednesdays only. Plus applicable taxes.",
+      "quote": null,
+      "locations": "participating",
+      "startDate": null,
+      "endDate": null,
+      "cta": {
+        "label": "Reserve a table",
+        "href": "reservation"
+      },
+      "source": "wackys.com/features and wackys.com/AYCE (via Design System + search index), Oct 2026",
+      "verified": "yes"
+    },
+    {
+      "id": "kids-eat-free",
+      "active": true,
+      "featured": true,
+      "zone": "drink",
+      "day": "Sundays",
+      "time": null,
+      "title": "Kids Eat Free",
+      "body": "Kids 10 and under eat free with an adult — one kids meal per adult entrée.",
+      "price": null,
+      "takeout": null,
+      "finePrint": "Dine-in with an adult. One free kids meal per adult entrée. Ask your server for full details. Participating locations only.",
+      "quote": "Your weekend is so busy and then the kids say, ‘I'm hungry!’",
+      "locations": "participating",
+      "startDate": null,
+      "endDate": null,
+      "cta": {
+        "label": "Find a location",
+        "href": "/locations"
+      },
+      "source": "wackys.com/features (via Design System + search index), Oct 2026",
+      "verified": "yes"
+    },
+    {
+      "id": "half-price-games",
+      "active": true,
+      "featured": true,
+      "zone": "game",
+      "day": "Tuesdays",
+      "time": null,
+      "title": "Half Price Games",
+      "body": "All games half off — arcade, tabletop, air hockey, VR and billiards.",
+      "price": null,
+      "takeout": null,
+      "finePrint": "Thunder Bay location only.",
+      "quote": "Whoever said that winning or losing doesn't matter clearly hasn't set foot in Wacky's.",
+      "locations": [
+        "thunder-bay"
+      ],
+      "startDate": null,
+      "endDate": null,
+      "cta": {
+        "label": "Game on",
+        "href": "/games"
+      },
+      "source": "wackys.com/features (via Design System + search index), Oct 2026",
+      "verified": "yes"
+    },
+    {
+      "id": "eat-n-game-on",
+      "active": true,
+      "featured": false,
+      "zone": "game",
+      "day": "Any day",
+      "time": null,
+      "title": "Eat 'N Game On! Combos",
+      "body": "Pick a meal — 7 Wing Meal, Build Your Own Smashburger, 3 Jumbo Chicken Tenders or Large Bacon Cheddar Poutine — and add game play.",
+      "price": "$25 · $33 · $41",
+      "takeout": null,
+      "finePrint": "Three combo tiers. Inclusions per tier vary — confirm with your location. Participating locations only.",
+      "quote": null,
+      "locations": "participating",
+      "startDate": null,
+      "endDate": null,
+      "cta": {
+        "label": "See the menu",
+        "href": "/menu"
+      },
+      "source": "Wacky's Design System menu-list component (from wackys.com), Oct 2026",
+      "verified": "needs-confirmation"
+    }
+  ]
+}
