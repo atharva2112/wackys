@@ -1,5 +1,5 @@
 /** Sub-path the site is served from (e.g. "/wackys" on GitHub Pages). next/link adds it automatically; raw asset URLs need this. */
-export const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
+export const BASE_PATH = (process.env.NEXT_PUBLIC_BASE_PATH || "").replace(/\/+$/, "");
 
 export function asset<T extends string | null | undefined>(src: T): T {
   return (src && src.startsWith("/") && !src.startsWith(`${BASE_PATH}/`) ? `${BASE_PATH}${src}` : src) as T;

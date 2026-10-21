@@ -1,5 +1,8 @@
 name: Deploy to GitHub Pages
 
+# Builds the static site and publishes it to the `gh-pages` branch.
+# Pages setting: Settings → Pages → Source "Deploy from a branch" → Branch `gh-pages` / (root).
+
 on:
   push:
     branches: [main]
@@ -7,16 +10,14 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
   group: pages-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  build:
+  build-deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -24,35 +25,27 @@ jobs:
         with:
           node-version: 22
           cache: npm
-      - name: Read Pages settings
-        id: pages
-        if: github.event_name != 'pull_request'
-        uses: actions/configure-pages@v5
       - run: npm ci
       - run: npm run lint
       - run: npm run validate:content
       - name: Static export
         run: npm run build:pages
         env:
-          # "/wackys" for a project site; empty on a custom domain or user site.
-          NEXT_PUBLIC_BASE_PATH: ${{ github.event_name == 'pull_request' && format('/{0}', github.event.repository.name) || steps.pages.outputs.base_path }}
-          NEXT_PUBLIC_SITE_URL: ${{ github.event_name == 'pull_request' && format('https://{0}.github.io/{1}', github.repository_owner, github.event.repository.name) || format('{0}{1}', steps.pages.outputs.origin, steps.pages.outputs.base_path) }}
-          # Optional public form endpoints (e.g. Formspree). Set as repository variables; unset = phone/email fallback.
+          # Project site lives at https://<owner>.github.io/<repo>/ — set repo variable BASE_PATH to "/" for a custom domain.
+          NEXT_PUBLIC_BASE_PATH: ${{ vars.BASE_PATH || format('/{0}', github.event.repository.name) }}
+          NEXT_PUBLIC_SITE_URL: ${{ vars.SITE_URL || format('https://{0}.github.io/{1}', github.repository_owner, github.event.repository.name) }}
+          # Optional public form endpoints (e.g. Formspree), set as repository variables. Unset = phone/email fallback.
           NEXT_PUBLIC_PARTY_FORM_URL: ${{ vars.PARTY_FORM_URL }}
           NEXT_PUBLIC_CONTACT_FORM_URL: ${{ vars.CONTACT_FORM_URL }}
           NEXT_PUBLIC_VIP_FORM_URL: ${{ vars.VIP_FORM_URL }}
-      - uses: actions/upload-pages-artifact@v3
+      - name: Publish to gh-pages branch
         if: github.event_name != 'pull_request'
-        with:
-          path: out
-
-  deploy:
-    if: github.event_name != 'pull_request'
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
+        working-directory: out
+        run: |
+          touch .nojekyll   # serve _next/ as-is instead of running Jekyll
+          git init -q -b gh-pages
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Deploy ${GITHUB_SHA}"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${GITHUB_REPOSITORY}.git" gh-pages
